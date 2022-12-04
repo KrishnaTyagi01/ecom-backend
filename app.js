@@ -7,7 +7,7 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const morgan = require('morgan');
 const expressValidator = require('express-validator')
-const {MONGOURI} = process.env.MONGOURI;
+const {MONGOURI} = require('./keys');
 const authRoutes = require('./routes/auth');
 const userRoutes = require('./routes/user');
 const braintreeRoutes = require('./routes/braintree');
@@ -31,7 +31,7 @@ app.use("/api",productRoutes);
 app.use("/api",braintreeRoutes);
 app.use("/api",orderRoutes);
 
-mongoose.connect(MONGOURI, {
+mongoose.connect(process.env.MONGOURI, {
     useUnifiedTopology: true,
     useNewUrlParser: true
 });
