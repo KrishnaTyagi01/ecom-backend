@@ -16,10 +16,6 @@ const productRoutes = require('./routes/product');
 const orderRoutes = require('./routes/order');
 
 
-mongoose.connect(MONGOURI, {
-    useUnifiedTopology: true,
-    useNewUrlParser: true
-});
 
 //MIDDLEWARE
 app.use(morgan('dev'));
@@ -34,6 +30,12 @@ app.use("/api",categoryRoutes);
 app.use("/api",productRoutes);
 app.use("/api",braintreeRoutes);
 app.use("/api",orderRoutes);
+
+mongoose.connect(MONGOURI, {
+    useUnifiedTopology: true,
+    useNewUrlParser: true
+});
+
 
 mongoose.connection.on('connected', () => {
     console.log('Connected to Mongo');
