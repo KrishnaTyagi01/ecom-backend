@@ -50,7 +50,7 @@ exports.categoryById = (req,res,next,id)=>{
 exports.list = (req, res)=>{
     Category.find().exec((err, data)=>{
         if(err){
-            return res.status(400).json({error:errorHandlers(err)})
+            return res.status(400).json({error:errorHandler(err)})
         }
         res.json(data);
     })

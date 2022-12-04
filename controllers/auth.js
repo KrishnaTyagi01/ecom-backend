@@ -1,7 +1,7 @@
 const User = require('../models/user');
 const jwt = require('jsonwebtoken');  //FOR GENERATING SIGNED TOKEN
 const expressJwt = require('express-jwt'); //FOR AUTHORIZATION CHECK
-const {errorHandlers} = require('../helpers/dbErrorhandlers')
+const {errorHandler} = require('../helpers/dbErrorhandlers')
 
 exports.signup = (req, res) =>{
     console.log("req.body", req.body);
